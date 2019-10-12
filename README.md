@@ -1,2 +1,2 @@
 # bw-football-club
-A web app that where visitors can access the latest football fixtures.
+A web app where visitors can access the latest football fixtures.

@@ -1,0 +1,31 @@
+$backColor: brown;
+
+.search-button {
+    border-color: skyblue;
+    color: blue;
+
+    &:hover, &:after, &:focus {
+        background-color: transparent;
+        color: $backColor;
+    }
+}
+.brand-custom {
+    &:hover, &:focus, &:active {
+        background-color: transparent;
+        color:$backColor;
+    }
+}
+
+.login-custom {
+    &:hover, &:focus, &:active {
+        background-color: transparent;
+        color:$backColor !important;
+    }
+}
+
+.register-custom {
+    &:hover, &:focus, &:active {
+        background-color: transparent;
+        color:$backColor !important;
+    }
+}

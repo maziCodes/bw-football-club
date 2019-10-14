@@ -3,3 +3,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 @import 'abstracts/variables';
+
+body {
+ font-family: $font-family;
+ background: $bg-color-default;
+ width: 100%;
+}

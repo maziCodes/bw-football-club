@@ -1,3 +1,96 @@
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
+
+@mixin font-looks($font-size, $font-color) {
+  font-weight: 500;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+
+.footer-row-1 {
+
+  .footer-col-1 {
+    // border: 2px solid green;
+    height: 82px;
+    text-align: center;
+    background-color: #292933;
+
+    .footer-text {
+      @include font-looks(18px, $text-color-w);
+      margin-top: 20px;
+    }
+  }
+}
+
+.footer-btn {
+  @include btn-generator($accents, #E8C75E);
+  margin-top: 20px;
+}
+
+.footer-row-2 {
+  background-color: $bg-color-black;
+  padding-top: 20px;
+
+  .footer-list-header {
+    @include font-looks(13px, $text-color-w);
+    font-weight: bold;
+
+  }
+
+  .footer-list {
+    list-style: none;
+    padding-left: 0px;
+
+    li {
+      @include font-looks(10px, $text-color-w);
+      color: #D1D1D3;
+    }
+  }
+}
+
+.footer-row-2-b {
+  background-color: $accents;
+  padding-top: 20px;
+  height: 150px;
+}
+
+.footer-row-3-a {
+  background-color: $accents;
+  height: 44px;
+
+  .footer-follow-us {
+    @include font-looks(15px, $text-color-b);
+    font-weight: bold;
+  }
+
+  .footer-social {
+    list-style: none;
+    padding-left: 10px;
+    display: inline-flex; 
+
+    .footer-social-list {
+      margin-right: 10px;
+
+      svg {
+        height: 12px;
+        width: 12px;
+      }
+    }
+  }
+
+}
+
+.footer-row-3-b {
+  height: 44px;
+  background-color: #2C2C36;
+
+  .copy-rights {
+    @include font-looks(15px, $text-color-w);
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+}
+

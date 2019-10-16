@@ -48,6 +48,11 @@
   background-color: $accents;
   padding-top: 20px;
   height: 150px;
+
+  .logo-text {
+    @include font-looks(1rem, $text-color-b);
+    font-weight: bold;
+  }
 }
 
 .footer-row-3-a {
@@ -86,5 +91,40 @@
     margin-top: 10px;
   }
 
+}
+
+// media query
+
+@media (min-width: 768px) {
+
+  .footer-row-1 {
+
+    .footer-col-1 {
+      text-align: right;
+    }
+    .footer-col-detail {
+      text-align: left;
+    }
+    
+  }
+  .footer-row-3 {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (min-width: 992px) {
+  .footer-row-1 {
+
+    .footer-col-1 {
+      text-align: center;
+    }
+
+    .footer-col-detail {
+      text-align: left;
+    }
+  }
+  .footer-btn {
+    width: 30%;
+  }
 }
 

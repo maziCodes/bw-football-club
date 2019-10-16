@@ -46,3 +46,35 @@ a {
   font-size: 13px;
   width: 40%;
 }
+
+// media query
+@media (max-width: 350px) { 
+  .table-btns {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) {
+  .table-main {
+
+    .table-custom {
+      font-size: 16px;
+    }
+  }
+  .table-team-crest {
+    margin-right: 20px;
+  }
+
+  .table-btn-container {
+    text-align: right;
+  }
+  .table-btns {
+    width: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .table-btns {
+    width: 13%;
+  }
+}

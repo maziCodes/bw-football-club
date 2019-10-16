@@ -1,7 +1,7 @@
 <section class="mt-4">
 
   <div>
-    <span>
+    <span routerLink="/competitions/teams/1">
       <svg class="back-btn" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.494 31.494"
         style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
@@ -45,19 +45,19 @@
 
   <div class="mt-5 mb-5">
       <h4>Team</h4>
-    <div class="card team-card">
-      <div class="card-body">
+    <div class="card">
+      <div class="card-body team-card">
         <div class="row">
-          <div class="col-4">
+          <div class="col-4 col-md-2">
             <img src="https://c-5uwzmx78pmca09x24amkczmx2ekikpmx2equiomax2ekwzmx2ewx78biax78w.g00.goal.com/g00/3_c-5eee.owit.kwu_/c-5UWZMXPMCA09x24pbbx78ax3ax2fx2famkczm.kikpm.quioma.kwzm.wx78biax78wzba.kwux2fawkkmzx2fbmiuax2f53f53x2fccql_4myqb6gm6iwulazzy8ps1d5op.x78vox3fq98k.uizsx3dquiom_$/$/$/$/$">
           </div>
-          <div class="col-8">
+          <div class="col-8 col-md-10">
             <h5>Manchester United</h5>
             <p class="small">
-              <span>Home: </span> Old Trafford
+              <span><strong>Home: </strong></span> Old Trafford
             </p>
             <p class="small">
-              <span>Website: </span> <a href="#">www.manu.com</a>
+              <span><strong>Website: </strong></span> <a href="#"> www.manu.com</a>
             </p>
           </div>
 
@@ -78,7 +78,10 @@
           <tbody>
             <tr>
               <th scope="row">12/Nov/2019</th>
-              <td>Mancity</td>
+              <td>
+                <img class="table-team-crest" width="50" src="assets/img/wallpaper-1846931.png">
+                <span>Mancity</span>
+              </td>
               <td>vs</td>
               <td>ManU</td>
             </tr>
@@ -102,7 +105,7 @@
       <!-- button -->
       <div class="row">
           <div class="col-6"></div>
-        <div class="col-6">
+        <div class="col-6 table-btn-container">
           <button class="table-btns mr-3">< PREV</button>
           <button class="table-btns">NEXT ></button>
         </div>

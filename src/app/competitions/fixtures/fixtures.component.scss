@@ -11,3 +11,13 @@
   }
 }
 
+// media query
+@media (max-width: 350px) { 
+  .scores {
+
+    .score {
+      padding: 2px 2px;
+    }
+  }
+}
+

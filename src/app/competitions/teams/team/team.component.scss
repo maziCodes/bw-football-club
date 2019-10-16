@@ -6,7 +6,13 @@
   height: 10%;
   width: 10%;
 }
-
+.team-card {
+  background: linear-gradient(45deg, #FDC624, transparent);
+  box-shadow: -2px 3px 6px 2px #bfc1c3;
+}
+.team-sub {
+  margin-left: 11px;
+}
 .scores {
   padding-left: 0px;
   font-weight: bold;
@@ -14,5 +20,23 @@
   .score {
     padding: 5px 10px;
     background-color: #FDC624;
+  }
+}
+
+// media query
+@media (max-width: 350px) { 
+  .scores {
+
+    .score {
+      padding: 2px 2px;
+    }
+  }
+}
+
+@media (min-width: 768px) { 
+  
+  .back-btn {
+    height: 2%;
+    width: 2%;
   }
 }

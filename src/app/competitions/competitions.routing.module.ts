@@ -15,7 +15,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'fixtures/none' },
       { path: 'fixtures/:id', component: FixturesComponent},
       { path: 'table/:id', component: TableComponent},
-      { path: 'teams/:id', component: TeamsComponent}
+      { path: 'teams/:id', component: TeamsComponent},
       { path: 'team/:id', component: TeamComponent}
     ]
   }

@@ -1,4 +1,5 @@
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
 
 
 $icon-font-size: 14px;
@@ -76,7 +77,70 @@ $icon-font-size: 14px;
   }
 }
 
+.logo-text {
+  @include font-looks(0.9em, $text-color-b);
+}
+
 .league-default {
-  width: 109%;
+  width: 100%;
   margin: 0 0 0 -15px;
+}
+
+// media queries
+
+@media (max-width: 350px) { 
+  .logo-text {
+    @include font-looks(0.7em, $text-color-b);
+  }
+}
+
+@media (min-width: 768px) {
+
+  .top-bar {
+    height: 50px;
+
+    .social-media {
+      width: 18%;
+    }
+
+    .top-text {
+      width: 24%;
+
+      .top-text-details {
+        border-left: 1px solid #626271;
+        padding-left: 9px;
+      }
+    }
+
+    .top-text-1 {
+      display: inline-flex;
+      float: right;
+      padding-top: 8px;
+
+      .top-text-details {
+        margin-left: 1.5rem;
+        border-left: 1px solid #626271;
+        padding-left: 13px;
+      }
+    }
+  }
+
+}
+
+@media (min-width: 992px) {
+  .top-text {
+
+    .top-text-details {
+      border-left: 1px solid #626271;
+      padding-left: 9px;
+    }
+  }
+
+  .top-text-1 {
+
+    .top-text-details {
+      border-left: 1px solid #626271;
+      padding-left: 13px;
+    }
+  }
 }

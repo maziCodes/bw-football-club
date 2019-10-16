@@ -7,18 +7,18 @@ $text-color-grey: #688090;
   background: url('../../assets/img/wallpaper-1846931.png') no-repeat, linear-gradient(359.71deg, #FFFFFF -164.45%, rgba(255, 255, 255, 0) 17.36%), rgba(33, 35, 44, 0.9);
   background-position: center;
   background-blend-mode: overlay;
-  background-size: cover;
+  // background-size: cover;
   background-repeat: no-repeat;
   height: 150px;
 
   .title {
     @include font-looks(25px, $text-color-w);
     font-weight: bold;
-    padding: 50px 10px 20px 10px;
+    padding: 50px 10px 20px 13px;
   }
 
   .bread-crumbs {
-    @include font-looks(11px, $text-color-w);
+    @include font-looks(13px, $text-color-w);
     padding: 0 10px;
 
     .active-crumbs {
@@ -47,5 +47,15 @@ $text-color-grey: #688090;
   .competition-links-b {
     border-left: 1px solid $text-color-grey;
     border-right: 1px solid $text-color-grey;
+  }
+}
+
+// media query
+@media (max-width: 350px) { 
+  .competition-details {
+  
+    .competition-links {
+      padding: 7px 26px;
+    }
   }
 }

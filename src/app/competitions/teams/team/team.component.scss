@@ -1,0 +1,18 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+
+.back-btn {
+  height: 10%;
+  width: 10%;
+}
+
+.scores {
+  padding-left: 0px;
+  font-weight: bold;
+
+  .score {
+    padding: 5px 10px;
+    background-color: #FDC624;
+  }
+}

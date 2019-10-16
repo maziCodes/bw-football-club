@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CompetitionsComponent } from './competitions.component';
 import { FixturesComponent } from './fixtures/fixtures.component';
 import { TableComponent } from './table/table.component';
+import { TeamsComponent } from './teams/teams.component';
 
 const routes: Routes = [
   {
@@ -11,8 +12,9 @@ const routes: Routes = [
     component: CompetitionsComponent,
     children: [
       { path: '', redirectTo: 'fixtures/none' },
-      { path: 'fixtures/:id', component: FixturesComponent}
-      { path: 'table/:id', component: TableComponent}
+      { path: 'fixtures/:id', component: FixturesComponent},
+      { path: 'table/:id', component: TableComponent},
+      { path: 'teams/:id', component: TeamsComponent}
     ]
   }
 ];

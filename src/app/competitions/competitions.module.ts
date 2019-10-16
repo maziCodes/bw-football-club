@@ -6,13 +6,15 @@ import { CompetitionsComponent } from './competitions.component';
 import { FixturesComponent } from './fixtures/fixtures.component';
 import { TableComponent } from './table/table.component';
 import { TeamsComponent } from './teams/teams.component';
+import { TeamComponent } from './teams/team/team.component';
 
 @NgModule({
   declarations: [
     CompetitionsComponent,
     FixturesComponent,
     TableComponent,
-    TeamsComponent
+    TeamsComponent,
+    TeamComponent
   ],
   imports: [
     CommonModule,

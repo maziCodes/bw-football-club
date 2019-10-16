@@ -4,11 +4,13 @@ import { CompetitionsRoutingModule } from './competitions.routing.module';
 
 import { CompetitionsComponent } from './competitions.component';
 import { FixturesComponent } from './fixtures/fixtures.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     CompetitionsComponent,
-    FixturesComponent
+    FixturesComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,

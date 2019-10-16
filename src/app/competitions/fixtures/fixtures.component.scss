@@ -1,0 +1,12 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+.fixtures-main {
+  margin-top: 10%;
+}
+
+.fixtures {
+  margin-left: 10px;
+  @include font-looks(12px, #3B3B45)
+}
+

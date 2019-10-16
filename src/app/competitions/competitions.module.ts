@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CompetitionsRoutingModule } from './competitions.routing.module';
 
 import { CompetitionsComponent } from './competitions.component';
+import { FixturesComponent } from './fixtures/fixtures.component';
 
 @NgModule({
   declarations: [
-    CompetitionsComponent
+    CompetitionsComponent,
+    FixturesComponent
   ],
   imports: [
     CommonModule,

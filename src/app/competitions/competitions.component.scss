@@ -1,0 +1,51 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+$text-color-grey: #688090;
+
+.hero {
+  background: url('../../assets/img/wallpaper-1846931.png') no-repeat, linear-gradient(359.71deg, #FFFFFF -164.45%, rgba(255, 255, 255, 0) 17.36%), rgba(33, 35, 44, 0.9);
+  background-position: center;
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150px;
+
+  .title {
+    @include font-looks(25px, $text-color-w);
+    font-weight: bold;
+    padding: 50px 10px 20px 10px;
+  }
+
+  .bread-crumbs {
+    @include font-looks(11px, $text-color-w);
+    padding: 0 10px;
+
+    .active-crumbs {
+      color: $accents;
+    }
+  }
+}
+
+.competition-details {
+  margin-top: 30px;
+  padding: 10px;
+
+  .competition-links {
+    height: 30px;
+    line-height: 17px;
+    padding: 7px 30px;
+    @include font-looks(14px, $text-color-grey);
+  }
+
+  .active {
+    background-color: $text-color-grey;
+    color: $text-color-w;
+    border-bottom: 1px solid $accents ;
+  }
+
+  .competition-links-b {
+    border-left: 1px solid $text-color-grey;
+    border-right: 1px solid $text-color-grey;
+  }
+}

@@ -5,13 +5,12 @@ import { CompetitionsRoutingModule } from './competitions.routing.module';
 import { CompetitionsComponent } from './competitions.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CompetitionsComponent
+  ],
   imports: [
     CommonModule,
     CompetitionsRoutingModule
-  ],
-  declarations: [
-    CompetitionsComponent
   ]
 })
 export class CompetitionsModule { }

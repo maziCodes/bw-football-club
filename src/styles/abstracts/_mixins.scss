@@ -8,3 +8,9 @@
     height: 42px;
     font-weight: bold;
 }
+
+@mixin font-looks($font-size, $font-color) {
+  font-weight: 500;
+  font-size: $font-size;
+  color: $font-color;
+}

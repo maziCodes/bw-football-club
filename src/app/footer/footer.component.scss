@@ -2,12 +2,6 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
-@mixin font-looks($font-size, $font-color) {
-  font-weight: 500;
-  font-size: $font-size;
-  color: $font-color;
-}
-
 
 .footer-row-1 {
 

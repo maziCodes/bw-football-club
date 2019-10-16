@@ -39,3 +39,10 @@ a {
     }
   }
 }
+
+
+.table-btns {
+  @include btn-generator($accents, #E8C75E);
+  font-size: 13px;
+  width: 40%;
+}

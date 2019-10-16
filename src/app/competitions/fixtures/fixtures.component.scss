@@ -1,15 +1,6 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
-.fixtures-main {
-  margin-top: 2%;
-}
-
-.fixtures {
-  margin-left: 10px;
-  @include font-looks(12px, #3B3B45)
-}
-
 .scores {
   padding-left: 5px;
   font-weight: bold;

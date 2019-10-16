@@ -19,3 +19,23 @@ a {
     text-decoration: none;
   }
 }
+
+.table-main {
+  margin-top: 2%;
+
+  .table-custom {
+    margin-left: 10px;
+    @include font-looks(12px, #3B3B45)
+  }
+}
+
+.table {
+  tbody {
+    tr {
+      &:hover {
+        background-color: rgba(253, 198, 36, 0.4);
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../../app/app.service';
+import { CompetitionService } from "../../competition.service";
 
 @Component({
   selector: 'app-team',
@@ -9,7 +10,7 @@ import { AppService } from '../../../../app/app.service';
 export class TeamComponent implements OnInit {
   team: any;
 
-  constructor(public _appService: AppService) { }
+  constructor(public _appService: AppService, public _competitionService: CompetitionService) { }
 
   ngOnInit() {
   }

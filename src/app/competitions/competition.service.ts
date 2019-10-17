@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router, ActivationStart, UrlSegment } from '@angular/router';
 
@@ -8,8 +9,13 @@ export class CompetitionService {
   // property to toggle active state
   isActive = new BehaviorSubject<string>('fixtures');
   routeParam = new BehaviorSubject<string>('2021');
+  teamFixtures = new BehaviorSubject< { [param: string]: any}[]>([]);
 
   constructor() {}
+
+  getTeamFixtures() {
+
+  }
 
   // get initial activated route
   getActivatedRoute(route) {

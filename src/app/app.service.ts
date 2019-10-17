@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { CompetitionService } from './competitions/competition.service';
 
 @Injectable()
 export class AppService {

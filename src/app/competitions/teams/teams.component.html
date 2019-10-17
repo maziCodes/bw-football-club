@@ -10,7 +10,7 @@
           </tr> -->
       </thead>
       <tbody>
-        <tr routerLink="/competitions/team/{{team['id']}}" *ngFor="let team of teams;">
+        <tr (click)="viewTeam(team)" *ngFor="let team of teams;">
           <th scope="row">
             <img class="table-team-crest" width="50" [src]="team['crestUrl']">
           </th>

@@ -1,7 +1,7 @@
 <section class="mt-4">
 
   <div>
-    <span routerLink="/competitions/teams/1">
+    <span routerLink="/competitions/teams/{{team.id}}">
       <svg class="back-btn" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.494 31.494"
         style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
@@ -49,15 +49,15 @@
       <div class="card-body team-card">
         <div class="row">
           <div class="col-4 col-md-2">
-            <img src="https://c-5uwzmx78pmca09x24amkczmx2ekikpmx2equiomax2ekwzmx2ewx78biax78w.g00.goal.com/g00/3_c-5eee.owit.kwu_/c-5UWZMXPMCA09x24pbbx78ax3ax2fx2famkczm.kikpm.quioma.kwzm.wx78biax78wzba.kwux2fawkkmzx2fbmiuax2f53f53x2fccql_4myqb6gm6iwulazzy8ps1d5op.x78vox3fq98k.uizsx3dquiom_$/$/$/$/$">
+            <img class="team-crest" [src]="team.crestUrl">
           </div>
           <div class="col-8 col-md-10">
-            <h5>Manchester United</h5>
+            <h5>{{team.name}}</h5>
             <p class="small">
-              <span><strong>Home: </strong></span> Old Trafford
+              <span><strong>Home: </strong></span> {{team.venue}}
             </p>
             <p class="small">
-              <span><strong>Website: </strong></span> <a href="#"> www.manu.com</a>
+              <span><strong>Website: </strong></span> <a [href]="team.website"> {{team.website}}</a>
             </p>
           </div>
 

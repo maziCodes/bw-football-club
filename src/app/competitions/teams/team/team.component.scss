@@ -10,6 +10,9 @@
   background: linear-gradient(45deg, #FDC624, transparent);
   box-shadow: -2px 3px 6px 2px #bfc1c3;
 }
+.team-crest {
+  width: 5em;
+}
 .team-sub {
   margin-left: 11px;
 }
@@ -39,4 +42,20 @@
     height: 2%;
     width: 2%;
   }
+}
+
+@media (min-width: 1024px) { 
+  
+  .team-crest {
+    width: 7em;
+  }
+  
+}
+
+@media (min-width: 1280px) { 
+  
+  .team-crest {
+    width: 10em;
+  }
+  
 }

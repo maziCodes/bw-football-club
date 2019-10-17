@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./team.component.scss']
 })
 export class TeamComponent implements OnInit {
+  team: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.team = JSON.parse(localStorage.getItem('team'));
+    console.log(this.team);
   }
 
 }

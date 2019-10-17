@@ -18,54 +18,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
+        <tr *ngFor="let standing of standings; let i = index">
+          <th scope="row">{{standing.position}}</th>
           <td>
-            <img class="table-team-crest" width="50" src="assets/img/wallpaper-1846931.png">
-            <span>Mancity</span>
+            <img class="table-team-crest" width="50" [src]="standing.team.crestUrl">
+            <span>{{standing.team.name}}</span>
           </td>
-          <td>2</td>
-          <td>2</td>
-          <td>0</td>
-          <td>0</td>
-          <td>2</td>
-          <td>0</td>
-          <td>2</td>
-          <td>6</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Liverpool</td>
-          <td>2</td>
-          <td>2</td>
-          <td>0</td>
-          <td>0</td>
-          <td>2</td>
-          <td>0</td>
-          <td>2</td>
-          <td>6</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Chelsea</td>
-          <td>2</td>
-          <td>2</td>
-          <td>0</td>
-          <td>0</td>
-          <td>2</td>
-          <td>0</td>
-          <td>2</td>
-          <td>6</td>
+          <td>{{standing.playedGames}}</td>
+          <td>{{standing.won}}</td>
+          <td>{{standing.draw}}</td>
+          <td>{{standing.lost}}</td>
+          <td>{{standing.goalsFor}}</td>
+          <td>{{standing.goalsAgainst}}</td>
+          <td>{{standing.goalDifference}}</td>
+          <td>{{standing.points}}</td>
         </tr>
       </tbody>
     </table>
   </div>
   <!-- button -->
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-6"></div>
     <div class="col-6 table-btn-container">
       <button class="table-btns mr-3">< PREV</button>
       <button class="table-btns">NEXT ></button>
     </div>
-  </div>
+  </div> -->
 </section>

@@ -10,7 +10,8 @@ import { AppService } from '../../app.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  standing: any;
+  standings: any;
+  season: any;
 
   constructor(private _appService: AppService,
     private route: ActivatedRoute) { }
@@ -33,7 +34,8 @@ export class TableComponent implements OnInit {
         console.log(data);
       } else {
         console.log(data, 'success');
-        this.standing = data;
+        this.season = data.season;
+        this.standings = data.standings[0].table;
       }
     }, err => {
       alert('Network Error!');

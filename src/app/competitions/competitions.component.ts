@@ -18,6 +18,7 @@ export class CompetitionsComponent implements OnInit {
     private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+
     // subscribe to the url of the first child
     this.route.children[0].url.subscribe( (urlSegment: UrlSegment[]) => {
       this.isActive = urlSegment[0].path;

@@ -14,6 +14,8 @@ export class CompetitionService {
   routeParam = new BehaviorSubject<string>('2021');
   teamFixtures = new BehaviorSubject< { [param: string]: any}[]>([]);
 
+  baseUrl = environment.baseUrl;
+
   httpOptions = {
     headers: new HttpHeaders({
       'X-Auth-Token': environment.headerToken
@@ -22,6 +24,7 @@ export class CompetitionService {
 
   fromDate;
   toDate;
+
   constructor() {
     this.fromDate = moment();
     this.toDate = moment();
@@ -30,6 +33,10 @@ export class CompetitionService {
   }
 
   getTeamFixtures() {
+
+  }
+
+  fetchData(url) {
 
   }
 

@@ -5,8 +5,7 @@ import { environment } from '../environments/environment';
 
 @Injectable()
 export class AppService {
-  baseUrl = 'https://api.football-data.org/v2/';
-  plan = '&plan=TIER_ONE';
+  baseUrl = environment.baseUrl;
 
   team = new BehaviorSubject< { [param: string]: any}>({});
   competitions = new BehaviorSubject< { [param: string]: any}[]>([]);

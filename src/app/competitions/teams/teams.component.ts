@@ -13,7 +13,6 @@ export class TeamsComponent implements OnInit {
   constructor(public _appService: AppService, private router: Router) { }
 
   ngOnInit() {
-    console.log(this._appService.activeTeams.value);
     this.teams = this._appService.activeTeams.value;
 
   }

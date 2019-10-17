@@ -7,6 +7,7 @@ import { FixturesComponent } from './fixtures/fixtures.component';
 import { TableComponent } from './table/table.component';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamComponent } from './teams/team/team.component';
+import { CompetitionService } from './competition.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TeamComponent } from './teams/team/team.component';
   imports: [
     CommonModule,
     CompetitionsRoutingModule
-  ]
+  ],
+  providers: [CompetitionService]
 })
 export class CompetitionsModule { }

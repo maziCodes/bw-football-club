@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params, UrlSegment } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 import { AppService } from './../app.service';
+import { CompetitionService } from './competition.service';
 
 @Component({
   selector: 'app-competitions',
@@ -11,20 +12,14 @@ import { AppService } from './../app.service';
 export class CompetitionsComponent implements OnInit {
 
   routeParam;
-  // property to toggle active state
-  isActive;
 
   constructor(private _appService: AppService,
-    private route: ActivatedRoute, private router: Router) { }
+    private route: ActivatedRoute, private router: Router,
+    public _competitionService: CompetitionService) { }
 
   ngOnInit() {
-
-    // subscribe to the url of the first child
-    this.route.children[0].url.subscribe( (urlSegment: UrlSegment[]) => {
-      this.isActive = urlSegment[0].path;
-      this.routeParam  = urlSegment[1].path;
-    });
-
+    this._competitionService.getActivatedRoute(this.route);
+    this._competitionService.subscribeToRoute(this.router);
   }
 
   // manage routing from tab
@@ -32,18 +27,16 @@ export class CompetitionsComponent implements OnInit {
 
     switch (componentName) {
       case 'fixtures':
-        this.router.navigateByUrl(`/competitions/${componentName}/${this.routeParam}`);
-        this.isActive = componentName;
+        this.router.navigateByUrl(`/competitions/${componentName}/${this._competitionService.routeParam.value}`);
         break;
 
       case 'table':
-        this.router.navigateByUrl(`/competitions/${componentName}/${this.routeParam}`);
-        this.isActive = componentName;
+        this.router.navigateByUrl(`/competitions/${componentName}/${this._competitionService.routeParam.value}`);
         break;
 
       case 'teams':
-        this.router.navigateByUrl(`/competitions/${componentName}/${this.routeParam}`);
-        this.isActive = componentName;
+        this.router.navigateByUrl(`/competitions/${componentName}/${this._competitionService.routeParam.value}`);
+        // this._competitionService.isActive.next(componentName);
         break;
 
       default:

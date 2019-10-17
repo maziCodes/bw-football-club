@@ -8,10 +8,19 @@
     </div>
   </div>
 
-  <nav class="nav competition-details">
-    <a class="nav-link competition-links" [ngClass]="{'active': isActive === 'fixtures'}" (click)="routeToComponent('fixtures')">FIXTURES</a>
-    <a class="nav-link competition-links competition-links-b" [ngClass]="{'active': isActive === 'table'}" (click)="routeToComponent('table')">TABLE</a>
-    <a class="nav-link competition-links"  routerLinkActive="active"  [ngClass]="{'active': isActive === 'teams'}" (click)="routeToComponent('teams')">TEAMS</a>
+  <nav *ngIf="_competitionService.isActive.value !== 'team'" class="nav competition-details">
+    <a class="nav-link competition-links" 
+      [ngClass]="{'active': _competitionService.isActive.value === 'fixtures'}"
+      (click)="routeToComponent('fixtures')">FIXTURES</a>
+
+    <a class="nav-link competition-links competition-links-b"
+      [ngClass]="{'active': _competitionService.isActive.value === 'table'}"
+      (click)="routeToComponent('table')">TABLE</a>
+
+    <a class="nav-link competition-links" 
+      [ngClass]="{'active': _competitionService.isActive.value === 'teams'}"
+      (click)="routeToComponent('teams')">TEAMS</a>
+
   </nav>
 
   <div class="container-fluid">

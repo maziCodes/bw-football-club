@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { setTimeout } from "timers";
 
 @Injectable()
 export class AppService {
@@ -66,7 +65,7 @@ export class AppService {
 
 }
 
-interface NetworkState {
+export interface NetworkState {
   state: 'success' | 'client error' | 'network error' | 'default';
   name: string;
 }

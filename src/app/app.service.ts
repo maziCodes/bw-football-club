@@ -11,7 +11,7 @@ export class AppService {
   competitions = new BehaviorSubject< { [param: string]: any}[]>([]);
   teams = new BehaviorSubject< { [param: string]: any}>({});
   activeTeams = new BehaviorSubject< { [params: string]: any}[]>([]);
-  networkState = new BehaviorSubject<NetworkState>({fetchTeam: 'default'});
+  networkState = new BehaviorSubject<NetworkState>({'name': 'app', 'state': 'default'});
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -24,7 +24,14 @@ export class AppService {
   fecthCompetitions() {
     this.fecthData(`competitions?areas=2021,2072,2077,2088,2114,2187,2224,2267&plan=TIER_ONE`)
     .subscribe( (data: any) => {
-      this.competitions.next(data['competitions']);
+      if (data.error) {
+        this.networkState.next({name: 'fetchCompetition', state : 'client error'});
+      } else {
+        this.competitions.next(data['competitions']);
+        this.networkState.next({name: 'fetchCompetition', state : 'success'});
+      }
+    }, err => {
+      this.networkState.next({name: 'fetchCompetition', state : 'network error'});
     });
   }
 
@@ -36,15 +43,15 @@ export class AppService {
       this.fecthData(`competitions/${competitionCode}/teams`)
       .subscribe( (data: any) => {
         if (data.error) {
-          this.networkState.value['fecthTeam'] = 'client error';
+          this.networkState.next({name: 'fecthTeam', state : 'client error'});
         } else {
           // update teams activeTeams
           this.teams.value[competitionCode] = data.teams;
           this.activeTeams.next(data.teams);
-          this.networkState.value['fecthTeam'] = 'success';
+          this.networkState.next({name: 'fecthTeam', state : 'success'});
         }
       }, err => {
-        this.networkState.value['fecthTeam'] = 'network error';
+        this.networkState.next({name: 'fecthTeam', state : 'network error'});
         this.fecthTeams(competitionCode);
       } );
     } else {
@@ -59,5 +66,6 @@ export class AppService {
 }
 
 interface NetworkState {
-  fetchTeam: 'success' | 'client error' | 'network error' | 'default';
+  state: 'success' | 'client error' | 'network error' | 'default';
+  name: string;
 }

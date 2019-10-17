@@ -14,8 +14,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this._appService.networkState.subscribe( data => {
-      if (data.fetchTeam !== 'success' &&  data.fetchTeam !== 'default') {
-        alert(data.fetchTeam);
+      if (data.state !== 'success' &&  data.state !== 'default') {
+        alert(data.state);
       }
     });
 

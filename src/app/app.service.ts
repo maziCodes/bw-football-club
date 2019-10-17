@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class AppService {
   baseUrl = 'https://api.football-data.org/v2/';
+  plan = '&plan=TIER_ONE';
 
 
   httpOptions = {

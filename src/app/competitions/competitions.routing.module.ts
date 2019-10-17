@@ -12,9 +12,9 @@ const routes: Routes = [
     path: '',
     component: CompetitionsComponent,
     children: [
-      { path: '', redirectTo: 'fixtures/none' },
+      { path: '', redirectTo: 'fixtures/2021' },
       { path: 'fixtures/:id', component: FixturesComponent},
-      { path: 'table/:id', component: TableComponent},
+      { path: ':table/:id', component: TableComponent},
       { path: 'teams/:id', component: TeamsComponent},
       { path: 'team/:id', component: TeamComponent}
     ]

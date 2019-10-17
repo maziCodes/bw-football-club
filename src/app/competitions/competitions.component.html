@@ -2,16 +2,16 @@
   <div class="hero">
     <h1 class="title">PREMIER LEAGUE</h1>
     <div class="bread-crumbs">
-      <span class="active-crumbs"> Home ></span> 
+      <span class="active-crumbs"> Home ></span>
       <span class="active-crumbs"> Bread ></span>
       <span> Crumbs </span>
     </div>
   </div>
 
   <nav class="nav competition-details">
-    <a class="nav-link competition-links" routerLinkActive="active" routerLink="/competitions/fixtures/1">FIXTURES</a>
-    <a class="nav-link competition-links competition-links-b"  routerLinkActive="active" routerLink="/competitions/table/1">TABLE</a>
-    <a class="nav-link competition-links"  routerLinkActive="active" routerLink="/competitions/teams/1">TEAMS</a>
+    <a class="nav-link competition-links" [ngClass]="{'active': isActive === 'fixtures'}" (click)="routeToComponent('fixtures')">FIXTURES</a>
+    <a class="nav-link competition-links competition-links-b" [ngClass]="{'active': isActive === 'table'}" (click)="routeToComponent('table')">TABLE</a>
+    <a class="nav-link competition-links"  routerLinkActive="active"  [ngClass]="{'active': isActive === 'teams'}" (click)="routeToComponent('teams')">TEAMS</a>
   </nav>
 
   <div class="container-fluid">

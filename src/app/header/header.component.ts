@@ -12,18 +12,16 @@ export class HeaderComponent implements OnInit {
   dropDownEl = document.getElementsByClassName('drop-down');
   competitions: [];
   teams: any;
-  callLimit = 1;
   activeCompetition: any;
 
   constructor(private _appService: AppService) { }
 
   ngOnInit() {
-    this.competitions = JSON.parse(localStorage.getItem('competitions'));
+    // this.competitions = JSON.parse(localStorage.getItem('competitions'));
 
-    if (!this.competitions) {
+
       this.fetchData(this.competitionsUrl, 'competitions');
-      console.log('call api');
-    }
+
   }
 
   fetchData(url, type?) {
@@ -35,9 +33,10 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  // switch properties
+
   assignPeoperty(data, typeOfCall) {
 
+    // switch properties
     switch (typeOfCall) {
       case 'competitions':
         this.competitions = data[typeOfCall];
@@ -60,11 +59,9 @@ export class HeaderComponent implements OnInit {
 
     this.dropDownEl[0]['style'].display = 'block';
 
-    if (this.callLimit === 1) {
+    if (competitionCode !== 1) {
       this.fetchData(url, 'teams');
     }
-
-    this.callLimit = this.callLimit + 1;
 
   }
 

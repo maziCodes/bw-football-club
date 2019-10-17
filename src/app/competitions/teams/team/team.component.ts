@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../../../app/app.service';
 
 @Component({
   selector: 'app-team',
@@ -8,11 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class TeamComponent implements OnInit {
   team: any;
 
-  constructor() { }
+  constructor(public _appService: AppService) { }
 
   ngOnInit() {
-    this.team = JSON.parse(localStorage.getItem('team'));
-    console.log(this.team);
   }
 
 }

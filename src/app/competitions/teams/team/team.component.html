@@ -1,7 +1,7 @@
 <section class="mt-4">
 
   <div>
-    <span routerLink="/competitions/teams/{{team.id}}">
+    <span routerLink="/competitions/teams/{{_appService.team.value['id']}}">
       <svg class="back-btn" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.494 31.494"
         style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
@@ -49,15 +49,15 @@
       <div class="card-body team-card">
         <div class="row">
           <div class="col-4 col-md-2">
-            <img class="team-crest" [src]="team.crestUrl">
+            <img class="team-crest" [src]="_appService.team.value['crestUrl']">
           </div>
           <div class="col-8 col-md-10">
-            <h5>{{team.name}}</h5>
+            <h5>{{_appService.team.value['name']}}</h5>
             <p class="small">
-              <span><strong>Home: </strong></span> {{team.venue}}
+              <span><strong>Home: </strong></span> {{_appService.team.value['venue']}}
             </p>
             <p class="small">
-              <span><strong>Website: </strong></span> <a [href]="team.website"> {{team.website}}</a>
+              <span><strong>Website: </strong></span> <a [href]="_appService.team.value['website']"> {{_appService.team.value['website']}}</a>
             </p>
           </div>
 

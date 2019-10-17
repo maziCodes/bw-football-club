@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
 import { Router } from '@angular/router';
+import { CompetitionService } from '../competition.service';
 
 @Component({
   selector: 'app-teams',
@@ -10,15 +11,15 @@ import { Router } from '@angular/router';
 export class TeamsComponent implements OnInit {
   teams: { [params: string]: any; }[];
 
-  constructor(public _appService: AppService, private router: Router) { }
+  constructor(public _appService: AppService, private router: Router,
+    public _competitionService: CompetitionService) { }
 
   ngOnInit() {
-    this.teams = this._appService.activeTeams.value;
-
+    // this.teams = this._appService.activeTeams.value;
   }
 
   viewTeam(team) {
-    localStorage.setItem('team', JSON.stringify(team));
+    this._appService.setTeam(team);
     this.router.navigateByUrl(`/competitions/team/${team.id}`);
   }
 

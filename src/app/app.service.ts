@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { CompetitionService } from './competitions/competition.service';
 
 @Injectable()
 export class AppService {
   baseUrl = 'https://api.football-data.org/v2/';
   plan = '&plan=TIER_ONE';
 
-
+  team = new BehaviorSubject< { [param: string]: any}>({});
   competitions = new BehaviorSubject< { [param: string]: any}[]>([]);
   teams = new BehaviorSubject< { [param: string]: any}>({});
   activeTeams = new BehaviorSubject< { [params: string]: any}[]>([]);
@@ -20,6 +21,11 @@ export class AppService {
   };
 
   constructor(private _http: HttpClient) { }
+
+    // set team
+    setTeam(team) {
+      this.team.next(team);
+    }
 
   fecthCompetitions() {
     this.fecthData(`competitions?areas=2021,2072,2077,2088,2114,2187,2224,2267&plan=TIER_ONE`)

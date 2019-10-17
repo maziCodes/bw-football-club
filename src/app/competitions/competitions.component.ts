@@ -18,6 +18,7 @@ export class CompetitionsComponent implements OnInit {
     public _competitionService: CompetitionService) { }
 
   ngOnInit() {
+    // manage tab state
     this._competitionService.getActivatedRoute(this.route);
     this._competitionService.subscribeToRoute(this.router);
   }
@@ -42,6 +43,10 @@ export class CompetitionsComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  tabState() {
+    return this._competitionService.isActive.value !== 'team';
   }
 
 }

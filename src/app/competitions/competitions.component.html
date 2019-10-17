@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <nav *ngIf="_competitionService.isActive.value !== 'team'" class="nav competition-details">
+  <nav *ngIf="tabState()" class="nav competition-details">
     <a class="nav-link competition-links" 
       [ngClass]="{'active': _competitionService.isActive.value === 'fixtures'}"
       (click)="routeToComponent('fixtures')">FIXTURES</a>

@@ -218,7 +218,7 @@
   </nav>
   <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
     <ul class="league-nav">
-      <li (mouseenter)="showDropDown(competition.id)" *ngFor="let competition of _appService.competitions | async"
+      <li (mouseenter)="showDropDown(competition.id); activeCompetition = competition" *ngFor="let competition of _appService.competitions | async"
         class="league-nav-list">{{competition.name}}</li>
       <li class="league-nav-list">
         <form class="form-inline my-2 my-lg-0">
@@ -229,10 +229,10 @@
     <!-- drop down -->
     <div (mouseleave)="closeDropDown()" class="container-fluid drop-down" *ngIf="dropdownState">
       <div class="row">
-        <div class="col-md-3 text-left drop-down-list" routerLink="/competitions/fixtures/{{activeCompetition?.id}}">
+        <div class="col-md-3 text-left drop-down-list" (click)="viewFixtures()">
           <strong class="drop-down-text">View Fixtures</strong>
         </div>
-        <div *ngFor="let team of _appService.activeTeams | async" routerLink="/competitions/team/{{team.id}}"
+        <div *ngFor="let team of _appService.activeTeams | async" (click)="viewTeam(team)"
           class="col-md-3 text-left drop-down-list">
           <img *ngIf="team.crestUrl" class="drop-down-img mr-2" [src]="team.crestUrl">
           <strong class="drop-down-text">{{team.name}}</strong>

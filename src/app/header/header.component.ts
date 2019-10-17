@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +10,32 @@ import { AppService } from '../app.service';
 export class HeaderComponent implements OnInit {
 
   dropdownState;
+  activeCompetition;
 
-  constructor(public _appService: AppService) { }
+
+  constructor(public _appService: AppService, private route: Router,
+    ) { }
 
   ngOnInit() {
+    // handle error
     this._appService.networkState.subscribe( data => {
       if (data.state !== 'success' &&  data.state !== 'default') {
         alert(data.state);
       }
     });
 
+  }
+
+  viewTeam(team) {
+    this._appService.setTeam(team);
+    this.route.navigateByUrl(`/competitions/team/${team.id}`);
+    this.dropdownState = false;
+
+  }
+
+  viewFixtures() {
+    this.route.navigateByUrl(`/competitions/fixtures/${this.activeCompetition.id}`);
+    this.dropdownState = false;
   }
 
   showDropDown(competitionCode?) {

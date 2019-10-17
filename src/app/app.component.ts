@@ -16,5 +16,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this._appService.fecthCompetitions();
+    this._appService.fecthTeams(2021);
   }
 }

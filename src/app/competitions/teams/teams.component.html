@@ -10,21 +10,11 @@
           </tr> -->
       </thead>
       <tbody>
-        <tr routerLink="/competitions/team/1">
+        <tr routerLink="/competitions/team/{{team['id']}}" *ngFor="let team of teams;">
           <th scope="row">
-            <img class="table-team-crest" width="50" src="assets/img/wallpaper-1846931.png">
+            <img class="table-team-crest" width="50" [src]="team['crestUrl']">
           </th>
-          <td>Mancity</td>
-          <td>></td>
-        </tr>
-        <tr>
-          <th scope="row">logo</th>
-          <td>Liverpool</td>
-          <td>></td>
-        </tr>
-        <tr>
-          <th scope="row">logo</th>
-          <td>Chelsea</td>
+          <td>{{team['name']}}</td>
           <td>></td>
         </tr>
       </tbody>

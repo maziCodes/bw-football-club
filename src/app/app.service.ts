@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { setTimeout } from "timers";
 
 @Injectable()
 export class AppService {
@@ -45,14 +46,14 @@ export class AppService {
         if (data.error) {
           this.networkState.next({name: 'fecthTeam', state : 'client error'});
         } else {
-          // update teams activeTeams
+          // update teams and activeTeams
           this.teams.value[competitionCode] = data.teams;
           this.activeTeams.next(data.teams);
           this.networkState.next({name: 'fecthTeam', state : 'success'});
         }
       }, err => {
         this.networkState.next({name: 'fecthTeam', state : 'network error'});
-        this.fecthTeams(competitionCode);
+
       } );
     } else {
       this.activeTeams.next(this.teams.value[competitionCode]);

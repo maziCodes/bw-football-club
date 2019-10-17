@@ -22,7 +22,7 @@ $icon-font-size: 14px;
 
       .icons {
         width: 15px;
-        height: 15px; 
+        height: 15px;
       }
 
     }
@@ -31,8 +31,8 @@ $icon-font-size: 14px;
 
       .icons {
         width: 15px;
-        height: 20px; 
-        // height: 40px; 
+        height: 20px;
+        // height: 40px;
       }
 
     }
@@ -92,11 +92,12 @@ $icon-font-size: 14px;
   align-content: space-around;
   border: 1px solid #ECECEC;
   margin: 0;
+  padding: 0;
   @include font-looks(0.9em, $text-color-b);
   font-weight: bold;
 
   .league-nav-list {
-    padding: 1% 2%;
+    padding: 1% 0.5%;
     border-left: 1px solid #ECECEC;
   }
 }
@@ -106,7 +107,7 @@ $icon-font-size: 14px;
   position: absolute;
   top: 11.6em;
   background: #ffffff;
-  height: 15em;
+  // height: 15em;
   width: 100%;
   box-shadow: -5px 2px 7px 0px #626271;
   border-bottom: 5px solid #FDC624;
@@ -135,7 +136,7 @@ $icon-font-size: 14px;
 
 // media queries
 
-@media (max-width: 350px) { 
+@media (max-width: 350px) {
   .logo-text {
     @include font-looks(0.7em, $text-color-b);
   }
@@ -181,7 +182,7 @@ $icon-font-size: 14px;
     .social-media {
       width: 18%;
     }
-    
+
     .top-text {
 
       .top-text-details {
@@ -198,6 +199,10 @@ $icon-font-size: 14px;
       }
     }
   }
+
+  .nav-input {
+    width: 100%;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -206,7 +211,7 @@ $icon-font-size: 14px;
       .social-media {
         width: 11%;
       }
-      
+
     .top-text {
       width: 19%;
     }

@@ -131,116 +131,22 @@
   </nav>
   <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
     <ul class="league-nav">
-      <li (mouseover)="showDropDown()" (mouseout)="closeDropDown()" *ngFor="let competition of competitions" class="league-nav-list">{{competition.name}}</li>
+      <li (mouseover)="showDropDown(competition.id)" (mouseout)="closeDropDown()" *ngFor="let competition of competitions" class="league-nav-list">{{competition.name}}</li>
       <li class="league-nav-list">
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2 nav-input" type="search" placeholder="Search" aria-label="Search">
         </form>
       </li>
     </ul>
     <!-- drop down -->
     <div (mouseover)="showDropDown()" (mouseout)="closeDropDown()" class="container-fluid drop-down">
       <div class="row">
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
-        </div>
-        <div class="col-md-3 text-center drop-down-list">
-          <img class="drop-down-img mr-2" src="assets/icons/instagram (1).svg">
-          <strong class="drop-down-text">Manchester United</strong>
+          <div class="col-md-3 text-left drop-down-list" routerLink="/competitions/fixtures/{{activeCompetition?.id}}">
+            <strong class="drop-down-text">View Fixtures</strong>
+          </div>
+        <div *ngFor="let team of teams" routerLink="/competitions/team/{{team.id}}" class="col-md-3 text-left drop-down-list">
+          <img *ngIf="team.crestUrl" class="drop-down-img mr-2" [src]="team.crestUrl">
+          <strong class="drop-down-text">{{team.name}}</strong>
         </div>
       </div>
 

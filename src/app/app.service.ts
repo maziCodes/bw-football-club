@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class AppService {
@@ -15,7 +16,7 @@ export class AppService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'X-Auth-Token': 'f76a97c0bad842ebaf7981a70d58355e'
+      'X-Auth-Token': environment.headerToken
     })
   };
 

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../environments/environment';
+
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router, ActivationStart, UrlSegment } from '@angular/router';
 
@@ -10,6 +12,12 @@ export class CompetitionService {
   isActive = new BehaviorSubject<string>('fixtures');
   routeParam = new BehaviorSubject<string>('2021');
   teamFixtures = new BehaviorSubject< { [param: string]: any}[]>([]);
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'X-Auth-Token': environment.headerToken
+    })
+  };
 
   constructor() {}
 

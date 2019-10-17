@@ -30,7 +30,6 @@ export class CompetitionsComponent implements OnInit {
   // manage routing from tab
   routeToComponent(componentName) {
 
-    // get params of the active child route
     switch (componentName) {
       case 'fixtures':
         this.router.navigateByUrl(`/competitions/${componentName}/${this.routeParam}`);
@@ -42,9 +41,12 @@ export class CompetitionsComponent implements OnInit {
         this.isActive = componentName;
         break;
 
-      default:
+      case 'teams':
         this.router.navigateByUrl(`/competitions/${componentName}/${this.routeParam}`);
         this.isActive = componentName;
+        break;
+
+      default:
         break;
     }
   }

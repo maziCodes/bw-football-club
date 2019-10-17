@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'fixtures/2021' },
       { path: 'fixtures/:id', component: FixturesComponent},
-      { path: ':table/:id', component: TableComponent},
+      { path: 'table/:id', component: TableComponent},
       { path: 'teams/:id', component: TeamsComponent},
       { path: 'team/:id', component: TeamComponent}
     ]

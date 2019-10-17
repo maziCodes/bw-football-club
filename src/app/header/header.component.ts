@@ -7,18 +7,17 @@ import { AppService } from '../app.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  competitionsUrl = 'competitions?areas=2021,2072,2077,2077,2088,2114,2187,2224,2267&plan=TIER_ONE';
-
-  dropDownEl = document.getElementsByClassName('drop-down');
-  competitions: [];
-  teams: any;
-  activeCompetition: any;
 
   dropdownState;
 
   constructor(public _appService: AppService) { }
 
   ngOnInit() {
+    this._appService.networkState.subscribe( data => {
+      if (data.fetchTeam !== 'success' &&  data.fetchTeam !== 'default') {
+        alert(data.fetchTeam);
+      }
+    });
 
   }
 

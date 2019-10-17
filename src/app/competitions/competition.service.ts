@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import * as moment from 'moment';
 
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router, ActivationStart, UrlSegment } from '@angular/router';
@@ -19,7 +20,14 @@ export class CompetitionService {
     })
   };
 
-  constructor() {}
+  fromDate;
+  toDate;
+  constructor() {
+    this.fromDate = moment();
+    this.toDate = moment();
+    console.log(this.fromDate.subtract(14, 'days').format('YYYY-MM-DD'));
+    console.log(this.toDate.add(14, 'days').format('YYYY-MM-DD'));
+  }
 
   getTeamFixtures() {
 

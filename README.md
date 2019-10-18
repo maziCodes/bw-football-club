@@ -22,7 +22,7 @@ Special attention was giving to the responsivness of the site.
 Bootstrap CSS framework was used to ensure responsiveness across screens.
 Moment.js came to the rescue with it's date formating powers.
 
-Although not a Library or a Framework, [Football Data] (https://www.football-data.org) was SUPER helpful in building the site.
+Although not a Library or a Framework, [Football Data](https://www.football-data.org) was SUPER helpful in building the site.
 All data was provided through Football Data's public api.
 
 

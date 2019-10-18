@@ -15,7 +15,7 @@ export class TeamsComponent implements OnInit {
     public _competitionService: CompetitionService) { }
 
   ngOnInit() {
-    // this.teams = this._appService.activeTeams.value;
+    this.teams = this._appService.activeTeams.value;
   }
 
   viewTeam(team) {

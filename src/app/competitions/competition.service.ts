@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import * as moment from 'moment';
+import { NetworkState} from './../network.model';
 
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router, ActivationStart, UrlSegment } from '@angular/router';
@@ -12,7 +13,11 @@ export class CompetitionService {
   // property to toggle active state
   isActive = new BehaviorSubject<string>('fixtures');
   routeParam = new BehaviorSubject<string>('2021');
-  teamFixtures = new BehaviorSubject< { [param: string]: any}[]>([]);
+  teamFixtures = new BehaviorSubject< { [param: string]: any}>({});
+  activeTeamFixtures = new BehaviorSubject< { [param: string]: any}[]>([]);
+
+  networkStateCompetition = new BehaviorSubject<NetworkState>({'name': 'competition', 'state': 'default'});
+
 
   baseUrl = environment.baseUrl;
 
@@ -22,22 +27,42 @@ export class CompetitionService {
     })
   };
 
-  fromDate;
-  toDate;
+  // use moment to format date
+  // date to get 30 days of all fixtures
+  // previous 15 days and next 15 days
+  dateFrom = moment().subtract(15, 'days').format('YYYY-MM-DD');
+  dateTo = moment().add(15, 'days').format('YYYY-MM-DD');
 
-  constructor() {
-    this.fromDate = moment();
-    this.toDate = moment();
-    console.log(this.fromDate.subtract(14, 'days').format('YYYY-MM-DD'));
-    console.log(this.toDate.add(14, 'days').format('YYYY-MM-DD'));
-  }
+  constructor(private _http: HttpClient) {}
 
-  getTeamFixtures() {
+  getTeamFixtures(teamCode) {
+    // const dateFrom = this.dateFrom.subtract(14, 'days').format('YYYY-MM-DD');
+    // const dateTo = this.dateTo.add(14, 'days').format('YYYY-MM-DD');
+
+    const url = `teams/${teamCode}/matches?dateFrom=${this.dateFrom}&dateTo=${this.dateTo}`;
+    // check if fixtures exits
+    if (!this.teamFixtures.value[teamCode]) {
+
+      this.fetchData(url).subscribe( (data: any) => {
+        if (data.error) {
+          this.networkStateCompetition.next({name: 'fetchTeamFixtures', state : 'client error'});
+        } else {
+          this.teamFixtures.next(data.matches);
+          this.activeTeamFixtures.next(data.matches);
+          this.networkStateCompetition.next({name: 'fetchTeamFixtures', state : 'success'});
+        }
+      }, err => {
+        this.networkStateCompetition.next({name: 'fetchTeamFixtures', state : 'network error'});
+        console.log(err);
+      })
+    } else {
+      this.teamFixtures.next(this.teamFixtures.value[teamCode]);
+    }
 
   }
 
   fetchData(url) {
-
+    return this._http.get(`${this.baseUrl}${url}`, this.httpOptions);
   }
 
   // get initial activated route
@@ -53,7 +78,7 @@ export class CompetitionService {
   }
 
   subscribeToRoute(router) {
-    // subscribe to router events
+    // subscribe to subsequent router events
     router.events.subscribe( (event) => {
       if (event instanceof ActivationStart) {
 

@@ -17,7 +17,7 @@ export class TableComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // subscribe to route params
+    // access the route params
     this.route.params.forEach((params: Params) => {
       if (params['id'] === 'none') {
         this.fetchStanding(2021);

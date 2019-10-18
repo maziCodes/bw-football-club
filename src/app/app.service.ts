@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../environments/environment';
+import { NetworkState } from './network.model';
 
 @Injectable()
 export class AppService {
@@ -9,6 +10,8 @@ export class AppService {
 
   team = new BehaviorSubject< { [param: string]: any}>({});
   competitions = new BehaviorSubject< { [param: string]: any}[]>([]);
+
+  // store all the accessed teams
   teams = new BehaviorSubject< { [param: string]: any}>({});
   activeTeams = new BehaviorSubject< { [params: string]: any}[]>([]);
   networkState = new BehaviorSubject<NetworkState>({'name': 'app', 'state': 'default'});
@@ -47,6 +50,7 @@ export class AppService {
 
       this.fecthData(`competitions/${competitionCode}/teams`)
       .subscribe( (data: any) => {
+
         if (data.error) {
           this.networkState.next({name: 'fecthTeam', state : 'client error'});
         } else {
@@ -68,9 +72,4 @@ export class AppService {
     return this._http.get(`${this.baseUrl}${params}`, this.httpOptions);
   }
 
-}
-
-export interface NetworkState {
-  state: 'success' | 'client error' | 'network error' | 'default';
-  name: string;
 }

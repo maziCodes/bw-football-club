@@ -16,6 +16,12 @@
 .team-sub {
   margin-left: 11px;
 }
+
+.no-pointer {
+   &:hover {
+     cursor: none;
+   }
+}
 .scores {
   padding-left: 0px;
   font-weight: bold;
@@ -27,7 +33,7 @@
 }
 
 // media query
-@media (max-width: 350px) { 
+@media (max-width: 350px) {
   .scores {
 
     .score {
@@ -36,26 +42,26 @@
   }
 }
 
-@media (min-width: 768px) { 
-  
+@media (min-width: 768px) {
+
   .back-btn {
     height: 2%;
     width: 2%;
   }
 }
 
-@media (min-width: 1024px) { 
-  
+@media (min-width: 1024px) {
+
   .team-crest {
     width: 7em;
   }
-  
+
 }
 
-@media (min-width: 1280px) { 
-  
+@media (min-width: 1280px) {
+
   .team-crest {
     width: 10em;
   }
-  
+
 }

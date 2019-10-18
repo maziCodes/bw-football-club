@@ -27,8 +27,8 @@ export class CompetitionService {
     })
   };
 
-  // use moment to format date
-  // date to get 30 days of all fixtures
+  // use moment.js to format date
+  // to get 30 days of all fixtures
   // previous 15 days and next 15 days
   dateFrom = moment().subtract(15, 'days').format('YYYY-MM-DD');
   dateTo = moment().add(15, 'days').format('YYYY-MM-DD');
@@ -36,8 +36,6 @@ export class CompetitionService {
   constructor(private _http: HttpClient) {}
 
   getTeamFixtures(teamCode) {
-    // const dateFrom = this.dateFrom.subtract(14, 'days').format('YYYY-MM-DD');
-    // const dateTo = this.dateTo.add(14, 'days').format('YYYY-MM-DD');
 
     const url = `teams/${teamCode}/matches?dateFrom=${this.dateFrom}&dateTo=${this.dateTo}`;
     // check if fixtures exits
@@ -54,7 +52,7 @@ export class CompetitionService {
       }, err => {
         this.networkStateCompetition.next({name: 'fetchTeamFixtures', state : 'network error'});
         console.log(err);
-      })
+      });
     } else {
       this.teamFixtures.next(this.teamFixtures.value[teamCode]);
     }

@@ -10,28 +10,18 @@
         </tr> -->
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">12/Nov/2019</th>
-          <td>
-            <img class="table-team-crest" width="50" src="assets/img/wallpaper-1846931.png">
-            <span>Mancity</span>
+        <tr *ngFor="let allFixture of allFixtures" class="no-pointer">
+          <!-- <th scope="row"></th> -->
+          <td class="text-right">
+            <!-- <img class="table-team-crest" width="50" src="assets/img/wallpaper-1846931.png"> -->
+            <span>{{allFixture.homeTeam.name}}</span>
           </td>
-          <td>vs</td>
-          <td>ManU</td>
-        </tr>
-        <tr>
-          <th scope="row">12/Nov/2019</th>
-          <td>Liverpool</td>
-          <td class="scores">
-            <span class="score">2</span> - <span class="score">0</span>
+          <td *ngIf="!allFixture.score.winner">vs</td>
+          <td *ngIf="allFixture.score.winner" class="scores text-center">
+            <span class="score">{{allFixture.score.fullTime.homeTeam}}</span> - <span class="score">{{allFixture.score.fullTime.homeTeam}}</span> <br><br>
+            <span>{{allFixture.utcDate | date: 'medium'}}</span>
           </td>
-          <td>Spurs</td>
-        </tr>
-        <tr>
-          <th scope="row">12/Nov/2019</th>
-          <td>Chelsea</td>
-          <td>vs</td>
-          <td>Arsenal</td>
+          <td>{{allFixture.awayTeam.name}}</td>
         </tr>
       </tbody>
     </table>

@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._appService.fecthCompetitions();
-    this._appService.fecthTeams(2021);
+    this._appService.fetchCompetitions();
+    // default to EPL
+    this._appService.fetchTeams(2021);
+    this._appService.fetchCompetitionFixtures(2021);
   }
 }

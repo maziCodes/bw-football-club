@@ -18,11 +18,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // handle error
-    this._appService.networkState.subscribe( data => {
-      if (data.state !== 'success' &&  data.state !== 'default') {
-        alert(data.state);
-      }
-    });
+    // this._appService.networkState.subscribe( data => {
+    //   if (data.state !== 'success' &&  data.state !== 'default') {
+    //     alert(data.state);
+    //   }
+    // });
 
   }
 
@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showDropDown(competitionCode?) {
-    this._appService.fecthTeams(competitionCode);
+    this._appService.fetchTeams(competitionCode);
     this.dropdownState = true;
   }
 

@@ -19,7 +19,7 @@
 
 .no-pointer {
    &:hover {
-     cursor: none;
+     cursor: initial;
    }
 }
 .scores {

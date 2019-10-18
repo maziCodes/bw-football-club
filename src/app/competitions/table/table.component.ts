@@ -29,7 +29,7 @@ export class TableComponent implements OnInit {
 
   fetchStanding(competition) {
     const url = `competitions/${competition}/standings?standingType=TOTAL`;
-    this._appService.fecthData(url).subscribe( (data: any) => {
+    this._appService.fetchData(url).subscribe( (data: any) => {
       if (data.error) {
         console.log(data);
       } else {

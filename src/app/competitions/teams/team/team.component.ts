@@ -42,7 +42,6 @@ export class TeamComponent implements OnInit {
   fixturesObservable() {
     this._competitionService.activeTeamFixtures.subscribe( data => {
       this.fixtures = data;
-      console.log(this.fixtures)
     });
 
   }

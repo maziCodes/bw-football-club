@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../environments/environment';
+import * as moment from 'moment';
 import { NetworkState } from './network.model';
 
 @Injectable()
@@ -9,7 +10,11 @@ export class AppService {
   baseUrl = environment.baseUrl;
 
   team = new BehaviorSubject< { [param: string]: any}>({});
+  // activeTeam = new BehaviorSubject< { [param: string]: any}>[]([]);
   competitions = new BehaviorSubject< { [param: string]: any}[]>([]);
+
+  competitionsFixtures = new BehaviorSubject< { [param: string]: any}>({});
+  activeCompetitionsFixtures = new BehaviorSubject< { [param: string]: any}[]>([]);
 
   // store all the accessed teams
   teams = new BehaviorSubject< { [param: string]: any}>({});
@@ -22,6 +27,12 @@ export class AppService {
     })
   };
 
+  // use moment.js to format date
+  // to get 10 days of all fixtures
+  // previous 5 days and next 5 days
+  dateFrom = moment('2019-8-10').subtract(9, 'days').format('YYYY-MM-DD');
+  dateTo = moment('2019-8-10').add(1, 'days').format('YYYY-MM-DD');
+
   constructor(private _http: HttpClient) { }
 
     // set team
@@ -29,8 +40,8 @@ export class AppService {
       this.team.next(team);
     }
 
-  fecthCompetitions() {
-    this.fecthData(`competitions?areas=2021,2072,2077,2088,2114,2187,2224,2267&plan=TIER_ONE`)
+  fetchCompetitions() {
+    this.fetchData(`competitions?areas=2021,2072,2077,2088,2114,2187,2224,2267&plan=TIER_ONE`)
     .subscribe( (data: any) => {
       if (data.error) {
         this.networkState.next({name: 'fetchCompetition', state : 'client error'});
@@ -44,11 +55,12 @@ export class AppService {
   }
 
 
-  fecthTeams(competitionCode) {
+  fetchTeams(competitionCode) {
+    localStorage.setItem('competitionCode', competitionCode);
     // check if team exits before calling api
     if (!this.teams.value[competitionCode]) {
 
-      this.fecthData(`competitions/${competitionCode}/teams`)
+      this.fetchData(`competitions/${competitionCode}/teams`)
       .subscribe( (data: any) => {
 
         if (data.error) {
@@ -68,7 +80,29 @@ export class AppService {
     }
   }
 
-  fecthData(params) {
+  fetchCompetitionFixtures(competitionCode) {
+    if (!this.competitionsFixtures.value[competitionCode]) {
+
+    this.fetchData(`matches?competitions=${competitionCode}&dateTo=${this.dateTo}&dateFrom=${this.dateFrom}`)
+    .subscribe( (data: any) => {
+      if (data.error) {
+        this.networkState.next({name: 'fetchCompetitionFixtures', state : 'client error'});
+      } else {
+        // update teams and activeTeams
+        this.competitionsFixtures.value[competitionCode] = data.matches;
+        this.activeCompetitionsFixtures.next(data.matches);
+        this.networkState.next({name: 'fetchCompetitionFixtures', state : 'success'});
+      }
+    }, err => {
+      this.networkState.next({name: 'fetchCompetitionFixtures', state : 'network error'});
+    } );
+
+  } else {
+      this.activeCompetitionsFixtures.next(this.competitionsFixtures.value[competitionCode]);
+    }
+  }
+
+  fetchData(params) {
     return this._http.get(`${this.baseUrl}${params}`, this.httpOptions);
   }
 

@@ -8,9 +8,21 @@ import { AppService } from '../../app.service';
 })
 export class FixturesComponent implements OnInit {
 
+  allFixtures;
+
   constructor(private _appService: AppService) { }
 
   ngOnInit() {
+    const competitionCode = localStorage.getItem('competitionCode');
+    this.fetchCompetitionFeixtures();
+  }
+
+  fetchCompetitionFeixtures() {
+    this._appService.activeCompetitionsFixtures
+    .subscribe( data => {
+      this.allFixtures = data;
+      console.log(this.allFixtures);
+    });
   }
 
 }

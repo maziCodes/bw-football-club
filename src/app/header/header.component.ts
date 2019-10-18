@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   dropdownState;
   activeCompetition;
+  navBar: HTMLElement;
 
 
   constructor(public _appService: AppService, private route: Router,
@@ -24,6 +25,8 @@ export class HeaderComponent implements OnInit {
     //   }
     // });
 
+    this.navBar = document.getElementById('navbarSupportedContent');
+
   }
 
   viewTeam(team) {
@@ -36,6 +39,7 @@ export class HeaderComponent implements OnInit {
     this.route.navigateByUrl(`/competitions/fixtures/${competitionCode.id}`);
     this._appService.fetchCompetitionFixtures(competitionCode.id);
     this._appService.fetchTeams(competitionCode.id);
+    this.navBar.classList.remove('show');
 
   }
 

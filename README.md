@@ -1,27 +1,29 @@
 # BwFootballClub
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+BW Football Club is a web app that offers visitors the best experience in football news and live scores
+It was built with [Angular](https://angular.io) version 7.0.3.
 
-## Development server
+## Duration
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Preliminary works i.e. planning and research, started on the eve of Sunday 13th, September 2019. The project started fully on Tuesday, 15th September 2019 and was completed Today 18th, September 2019.
 
-## Code scaffolding
+## Challenge
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Deciding which state management method to use was a tough call to make. After some research I decided to use Rxjs. It is an in built module in Anugular. 
+Implementing Rxjs did come with its some challenegs but I prevailed.
 
-## Build
+## Fun
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+I enjoyed working with SCSS CSS preprocessor it made writing CSS Great Again.
+Special attention was giving to the responsivness of the site.
 
-## Running unit tests
+## Libraries and Frameworks 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Bootstrap CSS framework was used to ensure responsiveness across screens.
+Moment.js came to the rescue with it's date formating powers.
 
-## Running end-to-end tests
+Although not a Library or a Framework, [Football Data] (https://www.football-data.org) was SUPER helpful in building the site.
+All data was provided through Football Data's public api.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## I'll be back :)

@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
     this.route.navigateByUrl(`/competitions/team/${team.id}`);
     this._appService.fetchCompetitionFixtures(this._appService.competitionCode.value);
 
-    // change page title 
+    // change page title
     this._appService.setPageTitle();
 
     this.dropdownState = false;
@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
     this.route.navigateByUrl(`/competitions/fixtures/${competition.id}`);
     this._appService.fetchCompetitionFixtures(competition.id);
     this._appService.fetchTeams(competition.id);
-    
+
     // change page title 
     this._appService.setPageTitle();
 

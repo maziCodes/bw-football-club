@@ -113,11 +113,10 @@ export class AppService {
   }
 
   setPageTitle() {
-    console.log(this.competitionCode.value, 'current code');
-    console.log(this.competitions.value, 'current competition');
+
+    //  check if competition has value
     if (this.competitions.value || this.competitions.value.length > 0) {
-      const currentTitle = this.competitions.value.filter( (element) => element.id === this.competitionCode.value)
-      console.log(currentTitle[0].name, 'currentTitle');
+      const currentTitle = this.competitions.value.filter( (element) => element.id === this.competitionCode.value);
       this.pageTitle.next(currentTitle[0].name);
     }
 

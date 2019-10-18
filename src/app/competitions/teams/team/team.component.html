@@ -80,14 +80,19 @@
           </thead>
           <tbody>
             <tr *ngFor="let fixture of fixtures" class="no-pointer">
-              <th scope="row">{{fixture.utcDate | date}}</th>
+              <th scope="row"></th>
               <td>
                 <!-- <img class="table-team-crest" width="50" src="assets/img/wallpaper-1846931.png"> -->
                 <span>{{fixture.homeTeam.name}}</span>
               </td>
-              <td *ngIf="!fixture.score.winner">vs</td>
-              <td *ngIf="fixture.score.winner" class="scores">
-                <span class="score">{{fixture.score.fullTime.homeTeam}}</span> - <span class="score">{{fixture.score.fullTime.awayTeam}}</span>
+              <td *ngIf="!fixture.score.winner" class="text-center">
+                <span>VS</span> <br> <br>
+                <span class="scores">{{fixture.utcDate | date: 'medium'}}</span>
+              </td>
+
+              <td *ngIf="fixture.score.winner" class="scores text-center">
+                <span class="score">{{fixture.score.fullTime.homeTeam}}</span> - <span class="score">{{fixture.score.fullTime.awayTeam}}</span> <br> <br>
+                <span>{{fixture.utcDate | date: 'medium'}}</span>
               </td>
               <td>{{fixture.awayTeam.name}}</td>
               <td>{{fixture.competition.name}}</td>

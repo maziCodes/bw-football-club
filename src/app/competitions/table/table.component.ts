@@ -34,6 +34,8 @@ export class TableComponent implements OnInit {
       } else {
         this.season = data.season;
         this.standings = data.standings[0].table;
+
+      console.log(data, "table");
       }
     }, err => {
       alert('Network Error!');

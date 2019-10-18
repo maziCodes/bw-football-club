@@ -30,11 +30,21 @@ export class HeaderComponent implements OnInit {
     this._appService.setTeam(team);
     this.route.navigateByUrl(`/competitions/team/${team.id}`);
     this.dropdownState = false;
+  }
+
+  viewCompetitionMobile(competitionCode) {
+    this.route.navigateByUrl(`/competitions/fixtures/${competitionCode.id}`);
+    this._appService.fetchCompetitionFixtures(competitionCode.id);
+    this._appService.fetchTeams(competitionCode.id);
 
   }
 
   viewFixtures() {
     this.route.navigateByUrl(`/competitions/fixtures/${this.activeCompetition.id}`);
+    this._appService.fetchCompetitionFixtures(this.activeCompetition.id);
+    this._appService.fetchTeams(this.activeCompetition.id);
+
+
     this.dropdownState = false;
   }
 

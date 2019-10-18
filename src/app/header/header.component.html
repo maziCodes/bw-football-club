@@ -203,8 +203,8 @@
         </li>
         <li class="league-default d-block d-sm-block d-md-block d-lg-none d-xl-none">
           <ul class="navbar-nav ml-4">
-            <li class="nav-item" *ngFor="let competition of _appService.competitions | async">
-              <a href="#">{{competition.name}}</a>
+            <li class="nav-item" (click)="viewCompetitionMobile(competition)" *ngFor="let competition of _appService.competitions | async">
+              <a>{{competition.name}}</a>
             </li>
           </ul>
         </li>

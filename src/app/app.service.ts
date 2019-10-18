@@ -30,8 +30,8 @@ export class AppService {
   // use moment.js to format date
   // to get 10 days of all fixtures
   // previous 5 days and next 5 days
-  dateFrom = moment('2019-8-10').subtract(9, 'days').format('YYYY-MM-DD');
-  dateTo = moment('2019-8-10').add(1, 'days').format('YYYY-MM-DD');
+  dateFrom = moment().subtract(5, 'days').format('YYYY-MM-DD');
+  dateTo = moment().add(5, 'days').format('YYYY-MM-DD');
 
   constructor(private _http: HttpClient) { }
 

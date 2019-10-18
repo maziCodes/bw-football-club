@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
+import { ActivationStart, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   title = 'bw-football-club';
 
-  constructor(private _appService: AppService) {
+  constructor(private _appService: AppService, private router: Router,
+    private route: ActivatedRoute) {
 
   }
 
@@ -19,5 +21,6 @@ export class AppComponent implements OnInit {
     // default to EPL
     this._appService.fetchTeams(2021);
     this._appService.fetchCompetitionFixtures(2021);
+  
   }
 }

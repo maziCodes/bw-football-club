@@ -20,6 +20,9 @@ export class FixturesComponent implements OnInit {
     this._appService.activeCompetitionsFixtures
     .subscribe( data => {
       this.allFixtures = data;
+      if (data.length > 0) {
+        this._appService.pageTitle.next(data[0].competition.name);
+      }
     });
   }
 

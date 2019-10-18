@@ -16,6 +16,7 @@ export class AppService {
   competitionsFixtures = new BehaviorSubject< { [param: string]: any}>({});
   activeCompetitionsFixtures = new BehaviorSubject< { [param: string]: any}[]>([]);
   competitionCode = new BehaviorSubject<string>('');
+  pageTitle = new BehaviorSubject<string>('Premier League');
 
   // store all the accessed teams
   teams = new BehaviorSubject< { [param: string]: any}>({});
@@ -42,11 +43,18 @@ export class AppService {
     }
 
   fetchCompetitions() {
-    this.fetchData(`competitions?areas=2021,2072,2077,2088,2114,2187,2224,2267&plan=TIER_ONE`)
+    this.fetchData(`competitions?areas=2021,2072,2077,2088,2114,2187,2224&plan=TIER_ONE`)
     .subscribe( (data: any) => {
       if (data.error) {
         this.networkState.next({name: 'fetchCompetition', state : 'client error'});
       } else {
+        // delete European Championship
+        data.competitions.forEach(element => {
+          if (element.name === 'European Championship') {
+            delete element.name;
+          }
+        });
+
         this.competitions.next(data['competitions']);
         this.networkState.next({name: 'fetchCompetition', state : 'success'});
       }
@@ -59,7 +67,7 @@ export class AppService {
   fetchTeams(competitionCode) {
     this.competitionCode.next(competitionCode);
     // check if team exits before calling api
-    if (!this.teams.value[competitionCode]) {
+    if (!this.teams.value[competitionCode] || this.teams.value[competitionCode].lenght < 1) {
 
       this.fetchData(`competitions/${competitionCode}/teams`)
       .subscribe( (data: any) => {
@@ -83,7 +91,7 @@ export class AppService {
 
   fetchCompetitionFixtures(competitionCode) {
     this.competitionCode.next(competitionCode);
-    if (!this.competitionsFixtures.value[competitionCode]) {
+    if (!this.competitionsFixtures.value[competitionCode] || this.competitionsFixtures.value[competitionCode] < 1) {
 
     this.fetchData(`matches?competitions=${competitionCode}&dateTo=${this.dateTo}&dateFrom=${this.dateFrom}`)
     .subscribe( (data: any) => {
@@ -102,6 +110,17 @@ export class AppService {
   } else {
       this.activeCompetitionsFixtures.next(this.competitionsFixtures.value[competitionCode]);
     }
+  }
+
+  setPageTitle() {
+    console.log(this.competitionCode.value, 'current code');
+    console.log(this.competitions.value, 'current competition');
+    if (this.competitions.value || this.competitions.value.length > 0) {
+      const currentTitle = this.competitions.value.filter( (element) => element.id === this.competitionCode.value)
+      console.log(currentTitle[0].name, 'currentTitle');
+      this.pageTitle.next(currentTitle[0].name);
+    }
+
   }
 
   fetchData(params) {

@@ -32,6 +32,11 @@ export class HeaderComponent implements OnInit {
   viewTeam(team) {
     this._appService.setTeam(team);
     this.route.navigateByUrl(`/competitions/team/${team.id}`);
+    this._appService.fetchCompetitionFixtures(this._appService.competitionCode.value);
+
+    // change page title 
+    this._appService.setPageTitle();
+
     this.dropdownState = false;
   }
 
@@ -39,6 +44,11 @@ export class HeaderComponent implements OnInit {
     this.route.navigateByUrl(`/competitions/fixtures/${competition.id}`);
     this._appService.fetchCompetitionFixtures(competition.id);
     this._appService.fetchTeams(competition.id);
+    
+    // change page title 
+    this._appService.setPageTitle();
+
+    // close nav bar on mobile
     this.navBar.classList.remove('show');
 
   }
@@ -47,6 +57,9 @@ export class HeaderComponent implements OnInit {
     this.route.navigateByUrl(`/competitions/fixtures/${this.activeCompetition.id}`);
     this._appService.fetchCompetitionFixtures(this.activeCompetition.id);
     this._appService.fetchTeams(this.activeCompetition.id);
+
+    // change page title 
+    this._appService.setPageTitle();
 
 
     this.dropdownState = false;

@@ -30,7 +30,7 @@ export class TeamComponent implements OnInit {
       this.team = data;
       this.teamId = data['id'];
 
-      // hanndle undefined teamId
+      // handle undefined teamId
       if (!this.teamId) {
         this.teamId = this.getRouteParam();
         this.router.navigateByUrl('/competitions');

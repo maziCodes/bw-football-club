@@ -15,7 +15,10 @@ export class TeamsComponent implements OnInit {
     public _competitionService: CompetitionService) { }
 
   ngOnInit() {
-    this.teams = this._appService.activeTeams.value;
+    setTimeout(() => {
+      this.teams = this._appService.activeTeams.value;
+
+    }, 500);
   }
 
   viewTeam(team) {

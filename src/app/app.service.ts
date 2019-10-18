@@ -15,6 +15,7 @@ export class AppService {
 
   competitionsFixtures = new BehaviorSubject< { [param: string]: any}>({});
   activeCompetitionsFixtures = new BehaviorSubject< { [param: string]: any}[]>([]);
+  competitionCode = new BehaviorSubject<string>('');
 
   // store all the accessed teams
   teams = new BehaviorSubject< { [param: string]: any}>({});
@@ -56,7 +57,7 @@ export class AppService {
 
 
   fetchTeams(competitionCode) {
-    localStorage.setItem('competitionCode', competitionCode);
+    this.competitionCode.next(competitionCode);
     // check if team exits before calling api
     if (!this.teams.value[competitionCode]) {
 
@@ -81,6 +82,7 @@ export class AppService {
   }
 
   fetchCompetitionFixtures(competitionCode) {
+    this.competitionCode.next(competitionCode);
     if (!this.competitionsFixtures.value[competitionCode]) {
 
     this.fetchData(`matches?competitions=${competitionCode}&dateTo=${this.dateTo}&dateFrom=${this.dateFrom}`)

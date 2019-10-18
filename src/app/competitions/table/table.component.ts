@@ -22,7 +22,7 @@ export class TableComponent implements OnInit {
       if (params['id'] === 'none') {
         this.fetchStanding(2021);
       } else {
-        this.fetchStanding(+params['id']);
+        this.fetchStanding(this._appService.competitionCode.value);
       }
     });
   }
@@ -31,9 +31,7 @@ export class TableComponent implements OnInit {
     const url = `competitions/${competition}/standings?standingType=TOTAL`;
     this._appService.fetchData(url).subscribe( (data: any) => {
       if (data.error) {
-        console.log(data);
       } else {
-        console.log(data, 'success');
         this.season = data.season;
         this.standings = data.standings[0].table;
       }

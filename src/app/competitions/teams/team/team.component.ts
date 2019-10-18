@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TeamComponent implements OnInit {
   team: any;
   fixtures: any;
+  teamId: any;
 
   constructor(public _appService: AppService, public _competitionService: CompetitionService,
     private route: ActivatedRoute, private router: Router) { }
@@ -27,15 +28,15 @@ export class TeamComponent implements OnInit {
   teamObservable() {
     this._appService.team.subscribe( data => {
       this.team = data;
-      let teamId = data['id'];
+      this.teamId = data['id'];
 
       // hanndle undefined teamId
-      if (!teamId) {
-        teamId = this.getRouteParam();
+      if (!this.teamId) {
+        this.teamId = this.getRouteParam();
         this.router.navigateByUrl('/competitions');
         return;
       }
-      this._competitionService.getTeamFixtures(teamId);
+      this._competitionService.getTeamFixtures(this.teamId);
     });
   }
 

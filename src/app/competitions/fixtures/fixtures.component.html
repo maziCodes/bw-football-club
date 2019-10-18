@@ -16,7 +16,10 @@
             <!-- <img class="table-team-crest" width="50" src="assets/img/wallpaper-1846931.png"> -->
             <span>{{allFixture.homeTeam.name}}</span>
           </td>
-          <td *ngIf="!allFixture.score.winner">vs</td>
+          <td *ngIf="!allFixture.score.winner"  class="text-center">
+            <span>VS</span><br> <br>
+            <span class="scores">{{allFixture.utcDate | date: 'medium'}}</span>
+          </td>
           <td *ngIf="allFixture.score.winner" class="scores text-center">
             <span class="score">{{allFixture.score.fullTime.homeTeam}}</span> - <span class="score">{{allFixture.score.fullTime.homeTeam}}</span> <br><br>
             <span>{{allFixture.utcDate | date: 'medium'}}</span>

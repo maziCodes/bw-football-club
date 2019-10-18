@@ -13,15 +13,13 @@ export class FixturesComponent implements OnInit {
   constructor(private _appService: AppService) { }
 
   ngOnInit() {
-    const competitionCode = localStorage.getItem('competitionCode');
-    this.fetchCompetitionFeixtures();
+    this.fetchCompetitionFixtures();
   }
 
-  fetchCompetitionFeixtures() {
+  fetchCompetitionFixtures() {
     this._appService.activeCompetitionsFixtures
     .subscribe( data => {
       this.allFixtures = data;
-      console.log(this.allFixtures);
     });
   }
 

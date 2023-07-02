@@ -47,8 +47,14 @@ a {
   width: 40%;
 }
 
+.no-pointer {
+  &:hover {
+    cursor: default !important;
+  }
+}
+
 // media query
-@media (max-width: 350px) { 
+@media (max-width: 350px) {
   .table-btns {
     font-size: 11px;
   }

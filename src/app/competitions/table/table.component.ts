@@ -12,6 +12,8 @@ import { AppService } from '../../app.service';
 export class TableComponent implements OnInit {
   standings: any;
   season: any;
+  isMultipleTables: boolean;
+  multiStandings: any[] = [];
 
   constructor(private _appService: AppService,
     private route: ActivatedRoute) { }
@@ -33,9 +35,11 @@ export class TableComponent implements OnInit {
       if (data.error) {
       } else {
         this.season = data.season;
-        this.standings = data.standings[0].table;
-
-      console.log(data, "table");
+        this.isMultipleTables = data.standings && data.standings.length > 1;
+        this.standings = data.standings[0].table || [];
+        console.log('standings: ', this.standings);
+        this.multiStandings = data.standings || [];
+        console.log('multiStandings: ', this.multiStandings);
       }
     }, err => {
       alert('Network Error!');

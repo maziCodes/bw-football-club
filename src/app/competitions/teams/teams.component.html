@@ -12,7 +12,7 @@
       <tbody>
         <tr (click)="viewTeam(team)" *ngFor="let team of teams;">
           <th scope="row">
-            <img class="table-team-crest" width="50" [src]="team['crestUrl']">
+            <img alt="team-crest" class="table-team-crest" width="50" [src]="team['crest']">
           </th>
           <td>{{team['name']}}</td>
           <td>></td>

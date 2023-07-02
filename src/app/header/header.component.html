@@ -178,26 +178,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">News</a>
+          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="#">Results</a>
+          <a class="nav-link" (click)="viewFixtures()">Fixtures</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Tables</a>
+          <a class="nav-link" (click)="viewTables()">Table</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tips</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" (click)="viewTeam()">Teams</a>-->
+<!--        </li>-->
         <li class="nav-item  d-block d-sm-block d-md-block d-lg-none d-xl-none">
           <a class="nav-link">Competitions</a>
         </li>
@@ -234,7 +225,7 @@
         </div>
         <div *ngFor="let team of _appService.activeTeams | async" (click)="viewTeam(team)"
           class="col-md-3 text-left drop-down-list">
-          <img *ngIf="team.crestUrl" class="drop-down-img mr-2" [src]="team.crestUrl">
+          <img *ngIf="team.crest" class="drop-down-img mr-2" [src]="team.crest">
           <strong class="drop-down-text">{{team.name}}</strong>
         </div>
       </div>

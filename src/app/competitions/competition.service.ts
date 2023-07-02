@@ -19,7 +19,7 @@ export class CompetitionService {
   networkStateCompetition = new BehaviorSubject<NetworkState>({'name': 'competition', 'state': 'default'});
 
 
-  baseUrl = environment.baseUrl;
+  baseUrl = `${environment.baseUrl}/${environment.footballDataVersion}/`;
 
   httpOptions = {
     headers: new HttpHeaders({

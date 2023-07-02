@@ -49,7 +49,7 @@
       <div class="card-body team-card">
         <div class="row">
           <div class="col-4 col-md-2">
-            <img class="team-crest" [src]="team['crestUrl']">
+            <img alt="team-crest" class="team-crest" [src]="team.crest">
           </div>
           <div class="col-8 col-md-10">
             <h5>{{team['name']}}</h5>
@@ -81,7 +81,7 @@
           <tbody>
             <tr *ngFor="let fixture of fixtures" class="no-pointer">
               <th scope="row"></th>
-              <td>
+              <td class="no-pointer">
                 <!-- <img class="table-team-crest" width="50" src="assets/img/wallpaper-1846931.png"> -->
                 <span>{{fixture.homeTeam.name}}</span>
               </td>

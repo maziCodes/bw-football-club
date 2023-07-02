@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
     this._appService.fetchCompetitionFixtures(competition.id);
     this._appService.fetchTeams(competition.id);
 
-    // change page title 
+    // change page title
     this._appService.setPageTitle();
 
     // close nav bar on mobile
@@ -58,7 +58,19 @@ export class HeaderComponent implements OnInit {
     this._appService.fetchCompetitionFixtures(this.activeCompetition.id);
     this._appService.fetchTeams(this.activeCompetition.id);
 
-    // change page title 
+    // change page title
+    this._appService.setPageTitle();
+
+
+    this.dropdownState = false;
+  }
+
+  viewTables() {
+    this.route.navigateByUrl(`/competitions/table/${this.activeCompetition.id}`);
+    this._appService.fetchCompetitionFixtures(this.activeCompetition.id);
+    this._appService.fetchTeams(this.activeCompetition.id);
+
+    // change page title
     this._appService.setPageTitle();
 
 

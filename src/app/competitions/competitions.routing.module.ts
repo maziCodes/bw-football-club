@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     component: CompetitionsComponent,
     children: [
-      { path: '', redirectTo: 'fixtures/2021' },
+      { path: '', pathMatch: 'prefix',  redirectTo: 'fixtures/2021' },
       { path: 'fixtures/:id', component: FixturesComponent},
       { path: 'table/:id', component: TableComponent},
       { path: 'teams/:id', component: TeamsComponent},

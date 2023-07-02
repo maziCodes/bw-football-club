@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
-import { ActivationStart, Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +21,5 @@ export class AppComponent implements OnInit {
     // default to EPL
     this._appService.fetchTeams(2021);
     this._appService.fetchCompetitionFixtures(2021);
-  
   }
 }

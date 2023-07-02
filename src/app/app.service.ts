@@ -7,7 +7,7 @@ import { NetworkState } from './network.model';
 
 @Injectable()
 export class AppService {
-  baseUrl = environment.baseUrl;
+  baseUrl = `${environment.baseUrl}/${environment.footballDataVersion}/`;
 
   team = new BehaviorSubject< { [param: string]: any}>({});
   // activeTeam = new BehaviorSubject< { [param: string]: any}>[]([]);
@@ -73,15 +73,15 @@ export class AppService {
       .subscribe( (data: any) => {
 
         if (data.error) {
-          this.networkState.next({name: 'fecthTeam', state : 'client error'});
+          this.networkState.next({name: 'fetchTeam', state : 'client error'});
         } else {
           // update teams and activeTeams
           this.teams.value[competitionCode] = data.teams;
           this.activeTeams.next(data.teams);
-          this.networkState.next({name: 'fecthTeam', state : 'success'});
+          this.networkState.next({name: 'fetchTeam', state : 'success'});
         }
       }, err => {
-        this.networkState.next({name: 'fecthTeam', state : 'network error'});
+        this.networkState.next({name: 'fetchTeam', state : 'network error'});
 
       } );
     } else {

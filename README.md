@@ -19,8 +19,9 @@ Special attention was giving to the responsivness of the site.
 
 ## Libraries and Frameworks 
 
-Bootstrap CSS framework was used to ensure responsiveness across screens.
-Moment.js came to the rescue with it's date formating powers.
+Bootstrap CSS framework was used to ensure responsiveness across screens. <br>
+Moment.js came to the rescue with it's date formatting powers. <br>
+Ngx-env to set environment variable using .env file [Ngx-env](https://github.com/chihab/ngx-env)
 
 Although not a Library or a Framework, [Football Data](https://www.football-data.org) was SUPER helpful in building the site.
 All data was provided through Football Data's public api.

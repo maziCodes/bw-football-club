@@ -8,7 +8,7 @@ import { AppService } from '../../app.service';
 })
 export class FixturesComponent implements OnInit {
 
-  allFixtures;
+  allFixtures = [];
 
   constructor(private _appService: AppService) { }
 
